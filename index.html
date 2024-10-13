@@ -8,8 +8,6 @@
 </head>
 <body>
     <div class="container">
-        <!-- Контейнер для снежинок -->
-<div id="snowflakes-container"></div>
         <!-- Заголовок -->
         <h1 id="page-title">Список песен</h1>
 
@@ -36,15 +34,17 @@
         <div id="song-details" style="display: none;">
             <h2 id="song-title"></h2>
             <audio id="audio-player" controls></audio>
-            <div id="variations" class="variations"></div>
+                        <div id="variations" class="variations"></div>
             <pre id="lyrics" class="lyrics-text"></pre>
-            <!-- Элементы управления текстом -->
-            <div id="text-controls">
-                <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
-                <button onclick="setTextAlign('center')" class="btn">По центру</button>
-                <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
-                <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
-                <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
+<!-- Элементы управления текстом -->
+<div id="text-controls">
+    <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
+    <button onclick="setTextAlign('center')" class="btn">По центру</button>
+    <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
+    <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
+    <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
+</div>
+
             </div>
             <button id="back-btn" class="btn">Назад к списку песен</button>
         </div>

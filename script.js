@@ -601,6 +601,18 @@ themeToggle.addEventListener('click', function () {
     document.body.classList.toggle('light-theme');
 });
 
+// Сортировка по количеству прослушиваний (рейтинг)
+function sortByRating() {
+    artists.sort((a, b) => b.listens - a.listens); // Сортируем по убыванию количества прослушиваний
+    renderArtistsList();
+}
+
+// Сортировка по алфавиту
+function sortByName() {
+    artists.sort((a, b) => a.name.localeCompare(b.name)); // Сортировка по алфавиту
+    renderArtistsList();
+}
+
 // Отобразить список песен
 function renderArtistsList() {
     artistsList.innerHTML = ''; // Очищаем список перед рендером
@@ -689,6 +701,18 @@ loadListensFromCookies();
 // Вызвать функцию для рендеринга списка при загрузке страницы
 renderArtistsList();
 
+// Функция для выравнивания текста
+function setTextAlign(alignment) {
+    lyricsDiv.style.textAlign = alignment;
+}
+
+// Функция для изменения размера шрифта
+function changeFontSize(action) {
+    const currentFontSize = window.getComputedStyle(lyricsDiv).fontSize;
+    let newFontSize = parseFloat(currentFontSize);
+    newFontSize = action === 'increase' ? newFontSize + 2 : newFontSize - 2;
+    lyricsDiv.style.fontSize = `${newFontSize}px`;
+}
 
 // Функция для создания снежинок
 function createSnowflake() {
@@ -712,3 +736,4 @@ function createSnowflake() {
 
 // Запуск создания снежинок через интервалы
 setInterval(createSnowflake, 500);
+
