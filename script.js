@@ -1,176 +1,220 @@
 const artists = [
     {
         name: "5'nizza",
-        song: "Нева (minus 2)",
-        file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-2).mp3",
+        song: "Нева",
+        variations: [
+            { label: "(minus 2)", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-2).mp3" },
+            { label: "(minus 3)", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-3).mp3" }
+        ],
         lyrics: ""
     },
     {
         name: "5'nizza",
-        song: "Нева (minus 3)",
-        file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-3).mp3",
-        lyrics: ""
-    },
-    {
-        name: "5'nizza",
-        song: "Солдат (minus 3)",
-        file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Солдат-(minus-3).mp3",
+        song: "Солдат",
+        variations: [
+            { label: "(minus 3)", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Солдат-(minus-3).mp3" }
+        ],
         lyrics: ""
     },
     {
         name: "А.Пугачева",
-        song: "На Тихорецкую (minus 2)",
-        file: "assets/Music/А.Пугачева---На-Тихорецкую/Алла-Пугачёва---На-Тихорецкую-(minus-2)-+0-semitone.mp3",
+        song: "На Тихорецкую",
+        variations: [
+            { label: "(minus 2)", file: "assets/Music/А.Пугачева---На-Тихорецкую/Алла-Пугачёва---На-Тихорецкую-(minus-2)-+0-semitone.mp3" }
+        ],
         lyrics: ""
     },
     {
         name: "А.Пугачева",
-        song: "Миллион алых роз (minus)",
-        file: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз-(minus).mp3",
-        lyrics: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз.txt"
-    },
-    {
-        name: "А.Пугачева",
-        song: "Миллион алых роз (minus +2 semitones)",
-        file: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз-(minus)-+2-semitones.mp3",
+        song: "Миллион алых роз",
+        variations: [
+            { label: "(minus)", file: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз-(minus).mp3" },
+            { label: "(minus +2 semitones)", file: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз-(minus)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/А.Пугачева--Миллион-алых-роз/Алла-Пугачёва---Миллион-алых-роз.txt"
     },
     {
         name: "Аида Ведищева",
-        song: "Лесной олень (minus)",
-        file: "assets/Music/Аида-Ведищева---Лесной-олень/Из-мультфильмов---Лесной-олень-(minus).mp3",
+        song: "Лесной олень",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Аида-Ведищева---Лесной-олень/Из-мультфильмов---Лесной-олень-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Аида-Ведищева---Лесной-олень/Из-мультфильмов---Лесной-олень.txt"
     },
     {
         name: "Аида Ведищева",
-        song: "Песенка о медведях (minus 2)",
-        file: "assets/Music/Аида-Ведищева---Песенка-о-медведях/Аида-Ведищева---Песенка-о-медведях-(minus-2).mp3",
+        song: "Песенка о медведях",
+        variations: [
+            { label: "(minus 2)", file: "assets/Music/Аида-Ведищева---Песенка-о-медведях/Аида-Ведищева---Песенка-о-медведях-(minus-2).mp3" }
+        ],
         lyrics: "assets/Music/Аида-Ведищева---Песенка-о-медведях/Аида-Ведищева---Песенка-о-медведях.txt"
     },
     {
         name: "Альви и И. Альтемиров",
-        song: "Тишина (minus +2 semitones)",
-        file: "assets/Music/Альви-и-И.-Альтемиров---Тишина/Альви-и-Игорь-Шиянов---Тишина-(minus)-+2-semitones.mp3",
+        song: "Тишина",
+        variations: [
+            { label: "(minus +2 semitones)", file: "assets/Music/Альви-и-И.-Альтемиров---Тишина/Альви-и-Игорь-Шиянов---Тишина-(minus)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Альви-и-И.-Альтемиров---Тишина/Альви-и-Игорь-Шиянов---Тишина.txt"
     },
     {
         name: "Андрей Державин",
-        song: "Не плачь, Алиса! (minus +4 semitones)",
-        file: "assets/Music/Андрей-Державин---Алиса/Андрей-Державин---Не-плачь,-Алиса-!-(minus)-+4-semitones.mp3",
+        song: "Не плачь, Алиса!",
+        variations: [
+            { label: "(minus +4 semitones)", file: "assets/Music/Андрей-Державин---Алиса/Андрей-Державин---Не-плачь,-Алиса-!-(minus)-+4-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Андрей-Державин---Алиса/Андрей-Державин---Не-плачь,-Алиса.txt"
     },
     {
         name: "Андрей Миронов",
-        song: "Остров невезения (minus)",
-        file: "assets/Music/Андрей-Миронов---Остров-невезения/Андрей-Миронов---Остров-Невезения-(minus).mp3",
+        song: "Остров невезения",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Андрей-Миронов---Остров-невезения/Андрей-Миронов---Остров-Невезения-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Андрей-Миронов---Остров-невезения/Андрей-Миронов---Остров-Невезения.txt"
     },
     {
         name: "Анет Сай",
-        song: "Не моя правда (minus)",
-        file: "assets/Music/Анет-Сай---Не-моя-правда/Анет-Сай---Не-моя-правда-(minus).mp3",
+        song: "Не моя правда",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Анет-Сай---Не-моя-правда/Анет-Сай---Не-моя-правда-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Анет-Сай---Не-моя-правда/не-моя-правда.txt"
     },
     {
         name: "Анет Сай",
-        song: "Слёзы (minus 3)",
-        file: "assets/Music/Анет-Сай--Слезы/Анет-Сай---Слёзы-(minus-3).mp3",
+        song: "Слёзы",
+        variations: [
+            { label: "(minus 3)", file: "assets/Music/Анет-Сай--Слезы/Анет-Сай---Слёзы-(minus-3).mp3" }
+        ],
         lyrics: "assets/Music/Анет-Сай--Слезы/Анет-Сай---Слёзы.txt"
     },
     {
         name: "Анна Герман",
-        song: "Надежда (minus)",
-        file: "assets/Music/Анна-Герман---Надежда/Анна-Герман---Надежда-(minus).mp3",
+        song: "Надежда",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Анна-Герман---Надежда/Анна-Герман---Надежда-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Анна-Герман---Надежда/Анна-Герман---Надежда.txt"
     },
     {
         name: "Анна Герман",
-        song: "Эхо любви (minus)",
-        file: "assets/Music/Анна-Герман---Эхо/Анна-Герман---Эхо-любви-(minus).mp3",
+        song: "Эхо любви",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Анна-Герман---Эхо/Анна-Герман---Эхо-любви-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Анна-Герман---Эхо/Анна-Герман---Эхо-любви.txt"
     },
     {
         name: "Асия",
-        song: "Лампочка (minus 2)",
-        file: "assets/Music/Асия---Лампочка/Асия---Лампочка-(minus-2).mp3",
+        song: "Лампочка",
+        variations: [
+            { label: "(minus 2)", file: "assets/Music/Асия---Лампочка/Асия---Лампочка-(minus-2).mp3" }
+        ],
         lyrics: "assets/Music/Асия---Лампочка/Асия---Лампочка.txt"
     },
     {
         name: "Бумбокс",
-        song: "Вахтерам (minus +2 semitones)",
-        file: "assets/Music/Бумбокс--Вахтерам/Бумбокс---Вахтерам-(minus)-+2-semitones.mp3",
+        song: "Вахтерам",
+        variations: [
+            { label: "(minus +2 semitones)", file: "assets/Music/Бумбокс--Вахтерам/Бумбокс---Вахтерам-(minus)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Бумбокс--Вахтерам/Бумбокс---Вахтерам.txt"
     },
     {
         name: "В. Дмитриенко",
-        song: "Венера-Юпитер (minus 2 +2 semitones)",
-        file: "assets/Music/В.-Дмитриенко--Венера-Юпитер/Ваня-Дмитриенко---Венера-Юпитер-(minus-2)-+2-semitones.mp3",
+        song: "Венера-Юпитер",
+        variations: [
+            { label: "(minus 2 +2 semitones)", file: "assets/Music/В.-Дмитриенко--Венера-Юпитер/Ваня-Дмитриенко---Венера-Юпитер-(minus-2)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/В.-Дмитриенко--Венера-Юпитер/Ваня-Дмитриенко---Венера-Юпитер.txt"
     },
     {
         name: "В. Салтыков",
-        song: "Белая ночь (minus 9 +2 semitones)",
-        file: "assets/Music/В.-Салтыков---Белая-ночь/Форум---Белая-ночь-(minus-9)-+2-semitones.mp3",
+        song: "Белая ночь",
+        variations: [
+            { label: "(minus 9 +2 semitones)", file: "assets/Music/В.-Салтыков---Белая-ночь/Форум---Белая-ночь-(minus-9)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/В.-Салтыков---Белая-ночь/Форум---Белая-ночь.txt"
     },
     {
         name: "В. Стрыкало",
-        song: "Яхта парус (minus 3)",
-        file: "assets/Music/В.Стрыкало--Яхта-Праус/Валентин-Стыкало---Яхта-парус-(minus-3).mp3",
+        song: "Яхта парус",
+        variations: [
+            { label: "(minus 3)", file: "assets/Music/В.Стрыкало--Яхта-Праус/Валентин-Стыкало---Яхта-парус-(minus-3).mp3" }
+        ],
         lyrics: "assets/Music/В.Стрыкало--Яхта-Праус/Валентин-Стыкало---Яхта-парус.txt"
     },
     {
         name: "Валентина Толкунова",
-        song: "Кабы не было зимы (minus)",
-        file: "assets/Music/Валентина-Толкунова---Кабы-не-было-зимы/Валентина-Толкунова---Кабы-не-было-зимы-(minus).mp3",
+        song: "Кабы не было зимы",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Валентина-Толкунова---Кабы-не-было-зимы/Валентина-Толкунова---Кабы-не-было-зимы-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Валентина-Толкунова---Кабы-не-было-зимы/Валентина-Толкунова---Кабы-не-было-зимы.txt"
     },
     {
         name: "Вера Брежнева",
-        song: "Реальная жизнь (minus)",
-        file: "assets/Music/Вера-Брежнева---Реальная-жизнь/Вера-Брежнева---Реальная-жизнь-(minus).mp3",
+        song: "Реальная жизнь",
+        variations: [
+            { label: "(minus)", file: "assets/Music/Вера-Брежнева---Реальная-жизнь/Вера-Брежнева---Реальная-жизнь-(minus).mp3" }
+        ],
         lyrics: "assets/Music/Вера-Брежнева---Реальная-жизнь/Вера-Брежнева---Реальная-жизнь.txt"
     },
     {
         name: "Винтаж",
-        song: "Ева (minus +2 semitones)",
-        file: "assets/Music/Винтаж---Ева/Винтаж---Ева-(minus)-+2-semitones.mp3",
+        song: "Ева",
+        variations: [
+            { label: "(minus +2 semitones)", file: "assets/Music/Винтаж---Ева/Винтаж---Ева-(minus)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Винтаж---Ева/Винтаж---Ева.txt"
     },
     {
         name: "Винтаж",
-        song: "Знак водолея (minus 3)",
-        file: "assets/Music/Винтаж---Знак-Водолея/Винтаж---Знак-водолея-(minus-3).mp3",
+        song: "Знак водолея",
+        variations: [
+            { label: "(minus 3)", file: "assets/Music/Винтаж---Знак-Водолея/Винтаж---Знак-водолея-(minus-3).mp3" }
+        ],
         lyrics: "assets/Music/Винтаж---Знак-Водолея/Винтаж---Знак-водолея.txt"
     },
     {
         name: "Звери",
-        song: "Всё, что тебя касается (minus 4 +2 semitones)",
-        file: "assets/Music/Звери---Все-что-тебя-касается/Звери---Всё,-что-тебя-касается-(minus-4)-+2-semitones.mp3",
+        song: "Всё, что тебя касается",
+        variations: [
+            { label: "(minus 4 +2 semitones)", file: "assets/Music/Звери---Все-что-тебя-касается/Звери---Всё,-что-тебя-касается-(minus-4)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Звери---Все-что-тебя-касается/Звери---Всё,-что-тебя-касается.txt"
     },
     {
         name: "Земфира",
-        song: "Жить в твоей голове (minus +2 semitones)",
-        file: "assets/Music/Земфира--Жить-в-твоей-голове/Земфира---Жить-в-твоей-голове-(minus)-+2-semitones.mp3",
+        song: "Жить в твоей голове",
+        variations: [
+            { label: "(minus +2 semitones)", file: "assets/Music/Земфира--Жить-в-твоей-голове/Земфира---Жить-в-твоей-голове-(minus)-+2-semitones.mp3" }
+        ],
         lyrics: "assets/Music/Земфира--Жить-в-твоей-голове/Земфира---Жить-в-твоей-голове.txt"
     },
     {
         name: "К. Орбакайте",
-        song: "Тучи в голубом (minus 6)",
-        file: "assets/Music/К-Орбакайте---Тучи-в-голубом/Кристина-Орбакайте---Тучи-в-голубом-(minus-6).mp3",
+        song: "Тучи в голубом",
+        variations: [
+            { label: "(minus 6)", file: "assets/Music/К-Орбакайте---Тучи-в-голубом/Кристина-Орбакайте---Тучи-в-голубом-(minus-6).mp3" }
+        ],
         lyrics: "assets/Music/К-Орбакайте---Тучи-в-голубом/Кристина-Орбакайте---Тучи-в-голубом.txt"
     },
     {
         name: "Меладзе",
-        song: "Красиво (minus 7)",
-        file: "assets/Music/Меладзе---Красиво/Валерий-Меладзе---Красиво-(minus-7).mp3",
+        song: "Красиво",
+        variations: [
+            { label: "(minus 7)", file: "assets/Music/Меладзе---Красиво/Валерий-Меладзе---Красиво-(minus-7).mp3" }
+        ],
         lyrics: "assets/Music/Меладзе---Красиво/Валерий-Меладзе---Красиво.txt"
     },
     {
         name: "Марк Бернес",
-        song: "Темная ночь (minus 3)",
-        file: "assets/Music/Марк-Бернес-Темная-ночь/Марк-Бернес---Тёмная-ночь-(minus-3).mp3",
+        song: "Темная ночь",
+        variations: [
+            { label: "(minus 3)", file: "assets/Music/Марк-Бернес-Темная-ночь/Марк-Бернес---Тёмная-ночь-(minus-3).mp3" }
+        ],
         lyrics: "assets/Music/Марк-Бернес-Темная-ночь/Марк-Бернес---Тёмная-ночь.txt"
     }
 ];
@@ -208,7 +252,10 @@ function renderArtistsList() {
 // Функция для отображения деталей трека
 function showSongDetails(artist) {
     songTitle.textContent = `${artist.name} - ${artist.song}`;
-    audioPlayer.src = artist.file;
+    audioPlayer.src = artist.variations[0].file;
+    
+    const variationsHTML = artist.variations.map(variation => `<div>${variation.label}</div>`).join('');
+    document.getElementById('variations').innerHTML = variationsHTML;
 
     if (artist.lyrics) {
         fetch(artist.lyrics)
@@ -310,9 +357,7 @@ function createSnowflake() {
 }
 
 // Интервал для создания снежинок
-setInterval(createSnowflake, 800); // Каждые 300 мс создается новая снежинка
-
-
+setInterval(createSnowflake, 800); // Каждые 800 мс создается новая снежинка
 
 // Вызвать функцию для рендеринга списка при загрузке страницы
 renderArtistsList();

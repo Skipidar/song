@@ -146,6 +146,17 @@ body {
     z-index: 1; /* Контент будет поверх снежинок */
 }
 
+/* Стили для вариаций */
+#variations {
+    margin-top: 10px;
+}
+
+#variations div {
+    font-size: 14px;
+    color: #fff;
+    margin-bottom: 5px;
+}
+
 /* Светлая тема */
 .light-theme {
     background-color: #fff;
@@ -178,3 +189,11 @@ body {
 .light-theme .btn:hover {
     background: linear-gradient(135deg, #76c7a5, #66b692);
 }
+
+/* Обводка текста для светлой темы */
+.light-theme #page-title,
+.light-theme #lyrics,
+.light-theme #variations div {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+}
+

@@ -16,24 +16,42 @@
 
         <!-- Поле для поиска -->
         <input type="text" id="search-input" placeholder="Поиск по песням..." class="search-bar">
+        
+        <!-- Кнопки категорий -->
+        <div id="categories">
+            <button onclick="filterByCategory('Русские')">Русские</button>
+            <button onclick="filterByCategory('Английские')">Английские</button>
+            <button onclick="filterByCategory('Испанские')">Испанские</button>
+            <button onclick="filterByCategory('Мультфильмы')">Мультфильмы</button>
+            <button onclick="filterByCategory('Под гитару')">Под гитару</button>
+            <button onclick="sortByName()">Сортировка по алфавиту</button>
+            <button onclick="sortByRating()">Сортировка по рейтингу</button>
+        </div>
 
         <!-- Список исполнителей и песен -->
         <div id="artists-list" class="artists-list"></div>
 
-        <!-- Детали песни -->
-        <div id="song-details" style="display: none;">
-            <h2 id="song-title"></h2>
-            <audio id="audio-player" controls></audio>
-            <pre id="lyrics" class="lyrics-text"></pre>
+<!-- Детали песни -->
+<div id="song-details" style="display: none;">
+    <h2 id="song-title"></h2>
+    <audio id="audio-player" controls></audio>
+    
+    <!-- Container for song variations -->
+    <div id="variations"></div>
 
-            <!-- Элементы управления текстом -->
-            <div id="text-controls">
-                <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
-                <button onclick="setTextAlign('center')" class="btn">По центру</button>
-                <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
-                <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
-                <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
-            </div>
+    <pre id="lyrics" class="lyrics-text"></pre>
+
+    <!-- Элементы управления текстом -->
+    <div id="text-controls">
+        <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
+        <button onclick="setTextAlign('center')" class="btn">По центру</button>
+        <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
+        <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
+        <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
+    </div>
+
+    <button id="back-btn" class="btn">Назад к списку песен</button>
+</div>
 
             <button id="back-btn" class="btn">Назад к списку песен</button>
         </div>
