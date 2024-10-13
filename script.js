@@ -549,6 +549,53 @@ const searchInput = document.getElementById('search-input');
 const themeToggle = document.getElementById('theme-toggle');
 const variationsDiv = document.getElementById('variations');
 
+// Установить куки
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+        expires = "; expires=" + date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "") + expires + "; path=/";
+}
+
+// Получить куки
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for (let i = 0; i < ca.length; i++) {
+        let c = ca[i];
+        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+    }
+    return null;
+}
+
+// Сохранение данных прослушиваний в куки
+function saveListensToCookies() {
+    const listensData = artists.map(artist => ({
+        name: artist.name,
+        song: artist.song,
+        listens: artist.listens
+    }));
+    setCookie('songListens', JSON.stringify(listensData), 7); // Сохранение на 7 дней
+}
+
+// Загрузка данных прослушиваний из куки при загрузке страницы
+function loadListensFromCookies() {
+    const storedData = getCookie('songListens');
+    if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        parsedData.forEach(storedArtist => {
+            const artist = artists.find(a => a.name === storedArtist.name && a.song === storedArtist.song);
+            if (artist) {
+                artist.listens = storedArtist.listens;
+            }
+        });
+    }
+}
+
 // Смена темы
 themeToggle.addEventListener('click', function () {
     document.body.classList.toggle('light-theme');
@@ -590,7 +637,7 @@ function showSongDetails(artist) {
 
     artistsList.style.display = 'none';
     songDetails.style.display = 'block';
-    saveListensToLocalStorage(); // Сохраняем обновлённые данные прослушиваний
+    saveListensToCookies(); // Сохраняем обновлённые данные прослушиваний
 }
 
 // Функция для отображения вариаций песни
@@ -636,34 +683,12 @@ function renderFilteredArtistsList(filteredArtists) {
     });
 }
 
-// Сохранение данных прослушиваний в localStorage
-function saveListensToLocalStorage() {
-    const listensData = artists.map(artist => ({
-        name: artist.name,
-        song: artist.song,
-        listens: artist.listens
-    }));
-    localStorage.setItem('songListens', JSON.stringify(listensData));
-}
-
-// Загрузка данных прослушиваний из localStorage при загрузке страницы
-function loadListensFromLocalStorage() {
-    const storedData = JSON.parse(localStorage.getItem('songListens'));
-    if (storedData) {
-        storedData.forEach(storedArtist => {
-            const artist = artists.find(a => a.name === storedArtist.name && a.song === storedArtist.song);
-            if (artist) {
-                artist.listens = storedArtist.listens;
-            }
-        });
-    }
-}
-
 // Вызвать функцию для загрузки данных прослушиваний при загрузке страницы
-loadListensFromLocalStorage();
+loadListensFromCookies();
 
 // Вызвать функцию для рендеринга списка при загрузке страницы
 renderArtistsList();
+
 
 // Функция для создания снежинок
 function createSnowflake() {
