@@ -286,6 +286,33 @@ function uploadNewTrack() {
         renderArtistsList(); // Обновляем список после добавления нового трека
     });
 }
+// Функция для создания снежинок
+function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    
+    // Генерация случайных размеров, позиций и времени падения снежинок
+    const size = Math.random() * 5 + 5 + 'px';
+    const leftPosition = Math.random() * window.innerWidth + 'px';
+    const fallDuration = Math.random() * 5 + 5 + 's';
+
+    snowflake.style.width = size;
+    snowflake.style.height = size;
+    snowflake.style.left = leftPosition;
+    snowflake.style.animationDuration = fallDuration;
+
+    document.body.appendChild(snowflake);
+
+    // Удаление снежинки после того, как она упадет
+    setTimeout(() => {
+        snowflake.remove();
+    }, parseFloat(fallDuration) * 1000); // Удаление через время падения
+}
+
+// Интервал для создания снежинок
+setInterval(createSnowflake, 800); // Каждые 300 мс создается новая снежинка
+
+
 
 // Вызвать функцию для рендеринга списка при загрузке страницы
 renderArtistsList();

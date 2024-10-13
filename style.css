@@ -5,6 +5,8 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 20px;
+    position: relative;
+    overflow-y: scroll; /* Включаем прокрутку */
 }
 
 .container {
@@ -17,6 +19,7 @@ body {
     text-align: left;
     margin-bottom: 20px;
     font-size: 24px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .search-bar {
@@ -27,6 +30,8 @@ body {
     background-color: #222;
     color: white;
     font-size: 16px;
+    border-radius: 8px; /* Закругление */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .artists-list {
@@ -36,17 +41,23 @@ body {
 }
 
 .artist {
-    background-color: #333;
+    background: linear-gradient(135deg, #399640, #921a8c); /* Зеленый градиент для кнопок песен */
+    color: white;
     margin: 5px 0;
     padding: 10px;
     cursor: pointer;
     width: 100%;
     text-align: left;
     font-size: 14px;
+    border-radius: 12px; /* Закругление */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
+    transition: background 0.3s ease, transform 0.2s ease; /* Плавный переход фона и трансформации */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .artist:hover {
-    background-color: #444;
+    background: linear-gradient(135deg, #43a047, #66bb6a); /* Изменение градиента при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
 }
 
 #song-details {
@@ -57,19 +68,24 @@ body {
     text-align: left;
     font-size: 16px;
     white-space: pre-wrap;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .btn {
-    background-color: #555;
+    background: linear-gradient(135deg, #76c7a5, #88d2b6); /* Градиент нежного зеленого цвета */
     color: white;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
     font-size: 14px;
+    border-radius: 12px; /* Закругление кнопок */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
+    transition: background 0.3s ease; /* Плавный переход */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .btn:hover {
-    background-color: #777;
+    background: linear-gradient(135deg, #66b692, #76c7a5); /* Изменение оттенка при наведении */
 }
 
 #upload-section {
@@ -85,15 +101,49 @@ body {
     background-color: #222;
     color: white;
     border: none;
+    border-radius: 8px; /* Закругление */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 #upload-section button {
     display: inline-block;
     padding: 10px 20px;
-    background-color: yellow;
+    background: linear-gradient(135deg, #76c7a5, #88d2b6); /* Градиент нежного зеленого цвета */
     color: black;
     border: none;
     cursor: pointer;
+    border-radius: 12px; /* Закругление кнопок */
+    transition: background 0.3s ease; /* Плавный переход */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+}
+
+#upload-section button:hover {
+    background: linear-gradient(135deg, #66b692, #76c7a5); /* Изменение оттенка при наведении */
+}
+
+/* Анимация снежинок */
+.snowflake {
+    position: absolute;
+    top: -50px; /* Падает с верху */
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    z-index: 0; /* Снежинки на заднем плане */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh); /* Падает на всю высоту экрана */
+    }
+}
+
+.container, #artists-list, #song-details, #upload-section {
+    position: relative;
+    z-index: 1; /* Контент будет поверх снежинок */
 }
 
 /* Светлая тема */
@@ -104,7 +154,9 @@ body {
 
 .light-theme .artist {
     background-color: #ddd;
-    color: #000;
+    color: white; /* Оставляем белый текст для лучшей читаемости */
+    border-radius: 8px; /* Закругление */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .light-theme .artist:hover {
@@ -114,12 +166,15 @@ body {
 .light-theme #search-input {
     background-color: #f0f0f0;
     color: black;
+    border-radius: 8px; /* Закругление */
 }
 
 .light-theme .btn {
-    background-color: #999;
+    background: linear-gradient(135deg, #88d2b6, #76c7a5); /* Светлый зеленый градиент для светлой темы */
+    color: white; /* Оставляем белый текст */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
 .light-theme .btn:hover {
-    background-color: #777;
+    background: linear-gradient(135deg, #76c7a5, #66b692);
 }
