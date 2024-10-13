@@ -147,14 +147,14 @@ body {
 }
 
 /* Стили для вариаций */
-#variations {
-    margin-top: 10px;
+#variations div {
+    cursor: pointer;
+    color: #ffffff;
+    margin-bottom: 5px;
 }
 
-#variations div {
-    font-size: 14px;
-    color: #fff;
-    margin-bottom: 5px;
+#variations div:hover {
+    color: #ff9900;
 }
 
 /* Светлая тема */
@@ -197,3 +197,48 @@ body {
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
 }
 
+/* Стили для кнопок категорий и сортировки */
+#categories button, #back-btn {
+    background: linear-gradient(135deg, #ffeb3b, #ffca28); /* Жёлтый градиент */
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 12px; /* Закругленные края */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+#categories button:hover, #back-btn:hover {
+    background: linear-gradient(135deg, #ffca28, #ffb300); /* Изменение оттенка при наведении */
+    transform: scale(1.05); /* Легкое увеличение при наведении */
+}
+
+/* Анимация снежинок */
+.snowflake {
+    position: absolute;
+    top: -50px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    z-index: 0; /* Снежинки на заднем плане */
+    width: 10px;
+    height: 10px;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh); /* Падает на всю высоту экрана */
+    }
+}
+
+.container, #artists-list, #song-details, #upload-section {
+    position: relative;
+    z-index: 1; /* Контент будет поверх снежинок */
+}
