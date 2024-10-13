@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Music Player</title>
+    <link rel="stylesheet" href="style.css" id="theme-style">
+</head>
+<body>
+    <div class="container">
+        <!-- Заголовок -->
+        <h1 id="page-title">Список песен</h1>
+
+        <!-- Кнопка для смены темы -->
+        <button id="theme-toggle" class="btn">Сменить тему</button>
+
+        <!-- Поле для поиска -->
+        <input type="text" id="search-input" placeholder="Поиск по песням..." class="search-bar">
+
+        <!-- Список исполнителей и песен -->
+        <div id="artists-list" class="artists-list"></div>
+
+        <!-- Детали песни -->
+        <div id="song-details" style="display: none;">
+            <h2 id="song-title"></h2>
+            <audio id="audio-player" controls></audio>
+            <pre id="lyrics" class="lyrics-text"></pre>
+
+            <!-- Элементы управления текстом -->
+            <div id="text-controls">
+                <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
+                <button onclick="setTextAlign('center')" class="btn">По центру</button>
+                <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
+                <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
+                <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
+            </div>
+
+            <button id="back-btn" class="btn">Назад к списку песен</button>
+        </div>
+
+        <!-- Форма для загрузки трека и текста -->
+        <div id="upload-section">
+            <h3>Загрузить новый трек</h3>
+            <input type="text" id="track-name" placeholder="Имя исполнителя">
+            <input type="text" id="song-name" placeholder="Название песни">
+            <input type="file" id="track-upload" accept="audio/*">
+            <input type="file" id="lyrics-upload" accept=".txt">
+            <button onclick="uploadNewTrack()" class="btn">Загрузить трек</button>
+        </div>
+    </div>
+
+    <!-- Скрипты -->
+    <script src="script.js"></script>
+</body>
+</html>

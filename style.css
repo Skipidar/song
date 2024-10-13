@@ -1,0 +1,125 @@
+/* Основные стили (темная тема по умолчанию) */
+body {
+    background-color: #000;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+#page-title {
+    color: yellow;
+    text-align: left;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.search-bar {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: none;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+}
+
+.artists-list {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.artist {
+    background-color: #333;
+    margin: 5px 0;
+    padding: 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+    font-size: 14px;
+}
+
+.artist:hover {
+    background-color: #444;
+}
+
+#song-details {
+    margin-top: 20px;
+}
+
+#lyrics {
+    text-align: left;
+    font-size: 16px;
+    white-space: pre-wrap;
+}
+
+.btn {
+    background-color: #555;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.btn:hover {
+    background-color: #777;
+}
+
+#upload-section {
+    margin-top: 30px;
+    border-top: 1px solid #444;
+    padding-top: 20px;
+}
+
+#upload-section input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    background-color: #222;
+    color: white;
+    border: none;
+}
+
+#upload-section button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: yellow;
+    color: black;
+    border: none;
+    cursor: pointer;
+}
+
+/* Светлая тема */
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+.light-theme .artist {
+    background-color: #ddd;
+    color: #000;
+}
+
+.light-theme .artist:hover {
+    background-color: #ccc;
+}
+
+.light-theme #search-input {
+    background-color: #f0f0f0;
+    color: black;
+}
+
+.light-theme .btn {
+    background-color: #999;
+}
+
+.light-theme .btn:hover {
+    background-color: #777;
+}
