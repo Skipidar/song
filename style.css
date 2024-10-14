@@ -1,17 +1,19 @@
-/* Основные стили (темная тема по умолчанию) */
+/* Основные стили */
 body {
     background-color: #000;
     color: #fff;
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     position: relative;
-    overflow-y: scroll; /* Включаем прокрутку */
+    overflow-y: scroll;
 }
 
 .container {
     max-width: 800px;
     margin: 0 auto;
+    padding: 20px;
+    padding-bottom: 120px; /* Отступ снизу, чтобы контент не перекрывался фиксированным плеером */
 }
 
 #page-title {
@@ -19,7 +21,7 @@ body {
     text-align: left;
     margin-bottom: 20px;
     font-size: 24px;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
 }
 
 .search-bar {
@@ -30,8 +32,8 @@ body {
     background-color: #222;
     color: white;
     font-size: 16px;
-    border-radius: 8px; /* Закругление */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    border-radius: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .artists-list {
@@ -41,23 +43,39 @@ body {
 }
 
 .artist {
-    background: linear-gradient(135deg, #399640, #921a8c); /* Зеленый градиент для кнопок песен */
+    display: flex;
+    justify-content: space-between; /* Размещает элементы по краям */
+    align-items: center;
+    background: linear-gradient(135deg, #399640, #921a8c);
     color: white;
     margin: 5px 0;
     padding: 10px;
     cursor: pointer;
     width: 100%;
-    text-align: left;
     font-size: 14px;
-    border-radius: 12px; /* Закругление */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
-    transition: background 0.3s ease, transform 0.2s ease; /* Плавный переход фона и трансформации */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease, transform 0.2s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .artist:hover {
-    background: linear-gradient(135deg, #43a047, #66bb6a); /* Изменение градиента при наведении */
-    transform: scale(1.05); /* Легкое увеличение при наведении */
+    background: linear-gradient(135deg, #43a047, #66bb6a);
+    transform: scale(1.05);
+}
+
+.artist-info {
+    /* Стили для названия исполнителя и песни */
+    flex: 1;
+}
+
+.listens-count {
+    /* Стили для количества прослушиваний */
+    font-size: 14px;
+    color: #ffeb3b; /* Жёлтый цвет для выделения */
+    margin-left: auto;
+    text-align: right;
+    min-width: 100px; /* Минимальная ширина для выравнивания */
 }
 
 #song-details {
@@ -68,24 +86,24 @@ body {
     text-align: left;
     font-size: 16px;
     white-space: pre-wrap;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .btn {
-    background: linear-gradient(135deg, #76c7a5, #88d2b6); /* Градиент нежного зеленого цвета */
+    background: linear-gradient(135deg, #76c7a5, #88d2b6);
     color: white;
     padding: 10px 15px;
     border: none;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 12px; /* Закругление кнопок */
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Тень для объема */
-    transition: background 0.3s ease; /* Плавный переход */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 .btn:hover {
-    background: linear-gradient(135deg, #66b692, #76c7a5); /* Изменение оттенка при наведении */
+    background: linear-gradient(135deg, #66b692, #76c7a5);
 }
 
 #upload-section {
@@ -101,119 +119,50 @@ body {
     background-color: #222;
     color: white;
     border: none;
-    border-radius: 8px; /* Закругление */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    border-radius: 8px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 #upload-section button {
     display: inline-block;
     padding: 10px 20px;
-    background: linear-gradient(135deg, #76c7a5, #88d2b6); /* Градиент нежного зеленого цвета */
+    background: linear-gradient(135deg, #76c7a5, #88d2b6);
     color: black;
     border: none;
     cursor: pointer;
-    border-radius: 12px; /* Закругление кнопок */
-    transition: background 0.3s ease; /* Плавный переход */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
+    border-radius: 12px;
+    transition: background 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 
 #upload-section button:hover {
-    background: linear-gradient(135deg, #66b692, #76c7a5); /* Изменение оттенка при наведении */
+    background: linear-gradient(135deg, #66b692, #76c7a5);
 }
 
-/* Анимация снежинок */
-.snowflake {
-    position: absolute;
-    top: -50px; /* Падает с верху */
-    background-color: white;
-    border-radius: 50%;
-    opacity: 0.8;
-    animation: fall linear infinite;
-    z-index: 0; /* Снежинки на заднем плане */
-}
-
-@keyframes fall {
-    0% {
-        transform: translateY(0);
-    }
-    100% {
-        transform: translateY(100vh); /* Падает на всю высоту экрана */
-    }
-}
-
-.container, #artists-list, #song-details, #upload-section {
-    position: relative;
-    z-index: 1; /* Контент будет поверх снежинок */
-}
-
-/* Стили для вариаций */
-#variations div {
-    cursor: pointer;
-    color: #ffffff;
-    margin-bottom: 5px;
-}
-
-#variations div:hover {
-    color: #ff9900;
-}
-
-/* Светлая тема */
-.light-theme {
-    background-color: #fff;
-    color: #000;
-}
-
-.light-theme .artist {
-    background-color: #ddd;
-    color: white; /* Оставляем белый текст для лучшей читаемости */
-    border-radius: 8px; /* Закругление */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
-}
-
-.light-theme .artist:hover {
-    background-color: #ccc;
-}
-
-.light-theme #search-input {
-    background-color: #f0f0f0;
-    color: black;
-    border-radius: 8px; /* Закругление */
-}
-
-.light-theme .btn {
-    background: linear-gradient(135deg, #88d2b6, #76c7a5); /* Светлый зеленый градиент для светлой темы */
-    color: white; /* Оставляем белый текст */
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
-}
-
-.light-theme .btn:hover {
-    background: linear-gradient(135deg, #76c7a5, #66b692);
-}
-
-/* Обводка текста для светлой темы */
-.light-theme #page-title,
-.light-theme #lyrics,
-.light-theme #variations div {
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8); /* Обводка текста */
-}
-
-/* Стили для кнопок категорий и сортировки */
-#categories button, #back-btn {
-    background: linear-gradient(135deg, #ffeb3b, #ffca28); /* Жёлтый градиент */
+#controls .btn {
+    background: linear-gradient(135deg, #ffeb3b, #ffca28);
     color: black;
     padding: 10px;
     margin: 5px;
     border: none;
     cursor: pointer;
     font-size: 14px;
-    border-radius: 12px; /* Закругленные края */
+    border-radius: 12px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     transition: background 0.3s ease, transform 0.2s ease;
 }
 
-#categories button:hover, #back-btn:hover {
-    background: linear-gradient(135deg, #ffca28, #ffb300); /* Изменение оттенка при наведении */
-    transform: scale(1.05); /* Легкое увеличение при наведении */
+#controls .btn:hover {
+    background: linear-gradient(135deg, #ffca28, #ffb300);
+    transform: scale(1.05);
+}
+
+.play-btn {
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 8px;
+    padding: 8px 16px;
+    margin-bottom: 10px;
 }
 
 /* Анимация снежинок */
@@ -224,9 +173,7 @@ body {
     border-radius: 50%;
     opacity: 0.8;
     animation: fall linear infinite;
-    z-index: 0; /* Снежинки на заднем плане */
-    width: 10px;
-    height: 10px;
+    z-index: 0;
 }
 
 @keyframes fall {
@@ -234,11 +181,197 @@ body {
         transform: translateY(0);
     }
     100% {
-        transform: translateY(100vh); /* Падает на всю высоту экрана */
+        transform: translateY(100vh);
     }
 }
 
 .container, #artists-list, #song-details, #upload-section {
     position: relative;
-    z-index: 1; /* Контент будет поверх снежинок */
+    z-index: 1;
+}
+
+/* Стили для вариаций */
+#variations .btn {
+    margin: 5px;
+    background: linear-gradient(135deg, #ff8a65, #ff7043);
+}
+
+#variations .btn:hover {
+    background: linear-gradient(135deg, #ff7043, #ff5722);
+}
+
+/* Светлая тема */
+.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+.light-theme .artist {
+    background-color: #ddd;
+    color: black;
+    border-radius: 8px;
+    text-shadow: none;
+}
+
+.light-theme .artist:hover {
+    background-color: #ccc;
+}
+
+.light-theme .search-bar {
+    background-color: #f0f0f0;
+    color: black;
+    border-radius: 8px;
+}
+
+.light-theme .btn {
+    background: linear-gradient(135deg, #88d2b6, #76c7a5);
+    color: white;
+    text-shadow: none;
+}
+
+.light-theme .btn:hover {
+    background: linear-gradient(135deg, #76c7a5, #66b692);
+}
+
+.light-theme #page-title,
+.light-theme #lyrics,
+.light-theme #variations .btn {
+    text-shadow: none;
+}
+
+/* Стили для кнопок категорий и сортировки */
+.category-btn {
+    background: linear-gradient(135deg, #ffeb3b, #ffca28);
+    color: black;
+    padding: 10px;
+    margin: 5px 5px 5px 0;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.category-btn:hover {
+    background: linear-gradient(135deg, #ffca28, #ffb300);
+    transform: scale(1.05);
+}
+
+/* Стили для кнопки "Назад к списку песен" */
+.back-btn {
+    background: linear-gradient(135deg, #ffeb3b, #ffca28);
+    color: black;
+    padding: 10px;
+    margin: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+
+.back-btn:hover {
+    background: linear-gradient(135deg, #ffca28, #ffb300);
+    transform: scale(1.05);
+}
+
+#back-btn, #top-back-btn {
+    display: none;
+}
+
+/* Стили для фиксированного плеера */
+.fixed-player {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #333; /* Цвет фона */
+    color: #fff; /* Цвет текста */
+    padding: 10px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#player-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+#volume-control {
+    width: 100px;
+    margin-left: 10px;
+}
+
+#current-volume {
+    margin-left: 5px;
+    color: #fff;
+}
+
+/* Стили для прогресс-бара */
+#progress-bar {
+    width: 100%;
+    margin-top: 10px;
+    background: #555;
+    height: 5px;
+    border-radius: 5px;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
+#progress-bar::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background: #ffeb3b;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+#progress-bar::-moz-range-thumb {
+    width: 15px;
+    height: 15px;
+    background: #ffeb3b;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+/* Стили для отображения времени */
+#time-display {
+    display: flex;
+    justify-content: center;
+    margin-top: 5px;
+    color: #fff;
+}
+
+/* Стили для визуализатора WaveSurfer */
+#waveform {
+    width: 100%;
+    height: 80px;
+    margin-bottom: 20px;
+}
+
+/* Стили для снежинок */
+.snowflake {
+    position: absolute;
+    top: -50px;
+    background-color: white;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: fall linear infinite;
+    z-index: 0;
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh);
+    }
 }

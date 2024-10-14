@@ -542,98 +542,111 @@ const artists = [
 const artistsList = document.getElementById('artists-list');
 const songDetails = document.getElementById('song-details');
 const songTitle = document.getElementById('song-title');
-const audioPlayer = document.getElementById('audio-player');
-const lyricsDiv = document.getElementById('lyrics');
 const backBtn = document.getElementById('back-btn');
+const topBackBtn = document.getElementById('top-back-btn');
 const searchInput = document.getElementById('search-input');
 const themeToggle = document.getElementById('theme-toggle');
 const variationsDiv = document.getElementById('variations');
+const categoriesDiv = document.getElementById('categories');
+const categoryInfoDiv = document.getElementById('category-info');
+const pitchDisplay = document.getElementById('pitch-display');
+const speedDisplay = document.getElementById('speed-display');
+const lyricsDiv = document.getElementById('lyrics');
+const playPauseBtn = document.getElementById('play-pause');
+const rewindBtn = document.getElementById('rewind');
+const forwardBtn = document.getElementById('forward');
+const playButton = document.getElementById('play-button');
+const volumeControl = document.getElementById('volume-control');
+const currentVolumeDisplay = document.getElementById('current-volume');
+const progressBar = document.getElementById('progress-bar');
+const currentTimeDisplay = document.getElementById('current-time');
+const totalDurationDisplay = document.getElementById('total-duration');
 
-// Установить куки
-function setCookie(name, value, days) {
-    let expires = "";
-    if (days) {
-        const date = new Date();
-        date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-        expires = "; expires=" + date.toUTCString();
-    }
-    document.cookie = name + "=" + (value || "") + expires + "; path=/";
-}
+let currentCategory = '';
+let currentSortType = '';
+let currentTrackIndex = 0;
+let currentVariationIndex = 0;
+let currentPitch = 0; // in semitones, from -6 to +6
 
-// Получить куки
-function getCookie(name) {
-    const nameEQ = name + "=";
-    const ca = document.cookie.split(';');
-    for (let i = 0; i < ca.length; i++) {
-        let c = ca[i];
-        while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
-    }
-    return null;
-}
-
-// Сохранение данных прослушиваний в куки
-function saveListensToCookies() {
-    const listensData = artists.map(artist => ({
-        name: artist.name,
-        song: artist.song,
-        listens: artist.listens
-    }));
-    setCookie('songListens', JSON.stringify(listensData), 7); // Сохранение на 7 дней
-}
-
-// Загрузка данных прослушиваний из куки при загрузке страницы
-function loadListensFromCookies() {
-    const storedData = getCookie('songListens');
-    if (storedData) {
-        const parsedData = JSON.parse(storedData);
-        parsedData.forEach(storedArtist => {
-            const artist = artists.find(a => a.name === storedArtist.name && a.song === storedArtist.song);
-            if (artist) {
-                artist.listens = storedArtist.listens;
-            }
-        });
-    }
-}
-
-// Смена темы
-themeToggle.addEventListener('click', function () {
-    document.body.classList.toggle('light-theme');
+// Инициализация WaveSurfer
+let wavesurfer = WaveSurfer.create({
+    container: '#waveform',
+    waveColor: 'violet',
+    progressColor: 'purple',
+    height: 80,
+    barWidth: 2,
+    cursorWidth: 1,
+    hideScrollbar: true,
 });
 
-// Сортировка по количеству прослушиваний (рейтинг)
-function sortByRating() {
-    artists.sort((a, b) => b.listens - a.listens); // Сортируем по убыванию количества прослушиваний
-    renderArtistsList();
+// Функция для форматирования времени
+function formatTime(seconds) {
+    const minutes = Math.floor(seconds / 60);
+    const secs = Math.floor(seconds % 60);
+    return `${minutes}:${secs < 10 ? '0' : ''}${secs}`;
 }
 
-// Сортировка по алфавиту
-function sortByName() {
-    artists.sort((a, b) => a.name.localeCompare(b.name)); // Сортировка по алфавиту
-    renderArtistsList();
+// Функция для обновления прогресс-бара и времени
+function updateProgressBar() {
+    const currentTime = wavesurfer.getCurrentTime();
+    const duration = wavesurfer.getDuration();
+    if (duration > 0) {
+        const progress = (currentTime / duration) * 100;
+        progressBar.value = progress;
+        currentTimeDisplay.textContent = formatTime(currentTime);
+        totalDurationDisplay.textContent = formatTime(duration);
+    }
 }
 
-// Отобразить список песен
-function renderArtistsList() {
-    artistsList.innerHTML = ''; // Очищаем список перед рендером
-    artists.forEach(artist => {
-        const artistDiv = document.createElement('div');
-        artistDiv.classList.add('artist');
-        artistDiv.textContent = `${artist.name} - ${artist.song} (Прослушиваний: ${artist.listens})`;
-        artistDiv.addEventListener('click', () => {
-            showSongDetails(artist);
-        });
-        artistsList.appendChild(artistDiv);
-    });
-}
+// Привязка обработчиков событий
+wavesurfer.on('audioprocess', updateProgressBar);
+wavesurfer.on('seek', updateProgressBar);
+wavesurfer.on('finish', () => {
+    playButton.textContent = 'Play';
+    playPauseBtn.textContent = '⏯';
+});
 
-// Функция для отображения деталей трека и его вариаций
-function showSongDetails(artist) {
+// Обработчик перемотки через прогресс-бар
+progressBar.addEventListener('input', () => {
+    const duration = wavesurfer.getDuration();
+    const time = (progressBar.value / 100) * duration;
+    wavesurfer.setCurrentTime(time);
+});
+
+// Функция для загрузки трека
+function loadTrack(index, variationIndex = 0) {
+    if (index < 0 || index >= artists.length) return;
+
+    currentTrackIndex = index;
+    currentVariationIndex = variationIndex;
+
+    const artist = artists[currentTrackIndex];
+    const variation = artist.variations[currentVariationIndex];
+
+    if (!variation) {
+        console.error('Нет доступных вариаций для этого трека.');
+        return;
+    }
+
     songTitle.textContent = `${artist.name} - ${artist.song}`;
-    audioPlayer.src = artist.variations[0].file; // Загружаем первую вариацию по умолчанию без воспроизведения
-    artist.listens++; // Увеличиваем счётчик прослушиваний
-    renderVariations(artist.variations); // Рендерим кнопки для вариаций
 
+    // Останавливаем и очищаем предыдущий трек
+    wavesurfer.stop();
+    wavesurfer.empty();
+
+    // Сбрасываем тональность и темп
+    wavesurfer.setPlaybackRate(1.0);
+    speedDisplay.textContent = '1.0x';
+    currentPitch = 0;
+    pitchDisplay.textContent = '0';
+
+    // Загружаем трек
+    wavesurfer.load(variation.file);
+
+    // Обновляем вариации
+    renderVariations(artist.variations);
+
+    // Обновляем текст песни
     if (artist.lyrics) {
         fetch(artist.lyrics)
             .then(response => response.text())
@@ -647,93 +660,371 @@ function showSongDetails(artist) {
         lyricsDiv.textContent = "Текста нет.";
     }
 
-    artistsList.style.display = 'none';
+    // Обновляем количество прослушиваний
+    artist.listens++;
+    saveListensToCookies();
+
+    // Обновляем UI
     songDetails.style.display = 'block';
-    saveListensToCookies(); // Сохраняем обновлённые данные прослушиваний
+    artistsList.style.display = 'none';
+    categoriesDiv.style.display = 'none';
+    searchInput.style.display = 'none';
+    topBackBtn.style.display = 'inline-block';
+
+    // Обновляем состояние кнопок при готовности трека
+    wavesurfer.on('ready', () => {
+        playButton.textContent = 'Play';
+        playPauseBtn.textContent = '⏯';
+        updateProgressBar(); // Обновляем прогресс-бар при готовности
+    });
+
+    // Обработка ошибок при загрузке трека
+    wavesurfer.on('error', (e) => {
+        console.error('Ошибка загрузки трека:', e);
+        alert('Не удалось загрузить трек. Проверьте путь к файлу.');
+    });
 }
 
-// Функция для отображения вариаций песни
+// Кнопка Play в верхней части
+playButton.addEventListener('click', () => {
+    if (wavesurfer.isPlaying()) {
+        wavesurfer.pause();
+        playButton.textContent = 'Play';
+        playPauseBtn.textContent = '⏯';
+    } else {
+        wavesurfer.play();
+        playButton.textContent = 'Pause';
+        playPauseBtn.textContent = '⏸';
+    }
+});
+
+// Кнопка воспроизведения/паузы в нижнем плеере
+playPauseBtn.addEventListener('click', () => {
+    if (wavesurfer.isPlaying()) {
+        wavesurfer.pause();
+        playButton.textContent = 'Play';
+        playPauseBtn.textContent = '⏯';
+    } else {
+        wavesurfer.play();
+        playButton.textContent = 'Pause';
+        playPauseBtn.textContent = '⏸';
+    }
+});
+
+// Кнопки перемотки
+rewindBtn.addEventListener('click', () => {
+    let currentTime = wavesurfer.getCurrentTime();
+    let newTime = currentTime - 5;
+    if (newTime < 0) newTime = 0;
+    wavesurfer.setCurrentTime(newTime);
+});
+
+forwardBtn.addEventListener('click', () => {
+    let currentTime = wavesurfer.getCurrentTime();
+    let newTime = currentTime + 5;
+    if (newTime > wavesurfer.getDuration()) newTime = wavesurfer.getDuration();
+    wavesurfer.setCurrentTime(newTime);
+});
+
+// Регулировка громкости
+volumeControl.addEventListener('input', () => {
+    const volume = parseFloat(volumeControl.value);
+    wavesurfer.setVolume(volume);
+    currentVolumeDisplay.textContent = Math.round(volume * 100) + '%';
+});
+
+// Устанавливаем начальную громкость
+wavesurfer.setVolume(parseFloat(volumeControl.value));
+
+// Функция для отображения вариаций
 function renderVariations(variations) {
-    variationsDiv.innerHTML = ''; // Очищаем вариации перед рендером
-    variations.forEach(variation => {
+    variationsDiv.innerHTML = '';
+    variations.forEach((variation, index) => {
         const variationBtn = document.createElement('button');
         variationBtn.textContent = variation.label;
         variationBtn.classList.add('btn', 'variation-btn');
         variationBtn.addEventListener('click', () => {
-            audioPlayer.src = variation.file; // Загружаем выбранную вариацию без воспроизведения
+            currentVariationIndex = index;
+            wavesurfer.load(variation.file);
+            // Обновляем заголовок песни
+            const artist = artists[currentTrackIndex];
+            songTitle.textContent = `${artist.name} - ${artist.song} (${variation.label})`;
         });
         variationsDiv.appendChild(variationBtn);
     });
 }
 
-// Вернуться к списку песен
-backBtn.addEventListener('click', () => {
-    songDetails.style.display = 'none';
-    artistsList.style.display = 'flex';
-});
-
-// Поиск по песням
-searchInput.addEventListener('input', function () {
-    const searchTerm = searchInput.value.toLowerCase();
-    const filteredArtists = artists.filter(artist =>
-        artist.name.toLowerCase().includes(searchTerm) || artist.song.toLowerCase().includes(searchTerm)
-    );
-    renderFilteredArtistsList(filteredArtists);
-});
-
-// Рендер отфильтрованного списка песен
-function renderFilteredArtistsList(filteredArtists) {
-    artistsList.innerHTML = ''; // Очищаем список перед рендером
-    filteredArtists.forEach(artist => {
+// Отображение списка треков
+function renderArtistsList() {
+    artistsList.innerHTML = '';
+    artists.forEach((artist, index) => {
         const artistDiv = document.createElement('div');
         artistDiv.classList.add('artist');
-        artistDiv.textContent = `${artist.name} - ${artist.song} (Прослушиваний: ${artist.listens})`;
+
+        // Создаём контейнер для названия песни и исполнителя
+        const artistInfoDiv = document.createElement('div');
+        artistInfoDiv.classList.add('artist-info');
+        artistInfoDiv.textContent = `${artist.name} - ${artist.song}`;
+
+        // Создаём элемент для количества прослушиваний
+        const listensDiv = document.createElement('div');
+        listensDiv.classList.add('listens-count');
+        listensDiv.textContent = `Прослушиваний: ${artist.listens}`;
+
+        // Добавляем элементы в artistDiv
+        artistDiv.appendChild(artistInfoDiv);
+        artistDiv.appendChild(listensDiv);
+
+        // Добавляем обработчик события
         artistDiv.addEventListener('click', () => {
-            showSongDetails(artist);
+            loadTrack(index);
         });
+
         artistsList.appendChild(artistDiv);
     });
 }
 
-// Вызвать функцию для загрузки данных прослушиваний при загрузке страницы
-loadListensFromCookies();
+// Фильтрация по категории
+function filterByCategory(category) {
+    currentCategory = category;
+    categoryInfoDiv.style.display = 'block';
+    categoryInfoDiv.textContent = `Категория: ${category}`;
+    const filteredArtists = artists.filter(artist => artist.category === category);
+    renderArtists(filteredArtists);
+}
 
-// Вызвать функцию для рендеринга списка при загрузке страницы
+// Функция для отображения отфильтрованных треков
+function renderArtists(artistsArray) {
+    artistsList.innerHTML = '';
+    artistsArray.forEach((artist) => {
+        const artistDiv = document.createElement('div');
+        artistDiv.classList.add('artist');
+
+        // Создаём контейнер для названия песни и исполнителя
+        const artistInfoDiv = document.createElement('div');
+        artistInfoDiv.classList.add('artist-info');
+        artistInfoDiv.textContent = `${artist.name} - ${artist.song}`;
+
+        // Создаём элемент для количества прослушиваний
+        const listensDiv = document.createElement('div');
+        listensDiv.classList.add('listens-count');
+        listensDiv.textContent = `Прослушиваний: ${artist.listens}`;
+
+        // Добавляем элементы в artistDiv
+        artistDiv.appendChild(artistInfoDiv);
+        artistDiv.appendChild(listensDiv);
+
+        // Находим индекс артиста в оригинальном массиве
+        const index = artists.findIndex(a => a.name === artist.name && a.song === artist.song);
+        if (index !== -1) {
+            artistDiv.addEventListener('click', () => {
+                loadTrack(index);
+            });
+        } else {
+            console.error('Артист не найден в оригинальном массиве artists.');
+        }
+
+        artistsList.appendChild(artistDiv);
+    });
+}
+
+// Сортировка по имени
+function sortByName() {
+    const collator = new Intl.Collator('ru', { sensitivity: 'base' });
+    artists.sort((a, b) => {
+        const nameA = a.name ? a.name.toLowerCase() : '';
+        const nameB = b.name ? b.name.toLowerCase() : '';
+
+        // Проверяем, начинается ли имя на кириллице
+        const isCyrillicA = /^[а-яё]/i.test(nameA);
+        const isCyrillicB = /^[а-яё]/i.test(nameB);
+
+        if (isCyrillicA && !isCyrillicB) return -1;
+        if (!isCyrillicA && isCyrillicB) return 1;
+
+        return collator.compare(nameA, nameB);
+    });
+    if (currentCategory) {
+        filterByCategory(currentCategory);
+    } else {
+        renderArtistsList();
+    }
+}
+
+// Сортировка по рейтингу
+function sortByRating() {
+    artists.sort((a, b) => b.listens - a.listens);
+    if (currentCategory) {
+        filterByCategory(currentCategory);
+    } else {
+        renderArtistsList();
+    }
+}
+
+// Вернуться к списку песен
+function backToList() {
+    songDetails.style.display = 'none';
+    artistsList.style.display = 'flex';
+    categoriesDiv.style.display = 'block';
+    searchInput.style.display = 'block';
+    topBackBtn.style.display = 'none';
+    categoryInfoDiv.style.display = 'none';
+    currentCategory = '';
+    playButton.textContent = 'Play';
+    playPauseBtn.textContent = '⏯';
+    wavesurfer.stop();
+}
+
+// Привязываем обработчики к кнопкам "Назад"
+backBtn.addEventListener('click', backToList);
+topBackBtn.addEventListener('click', backToList);
+
+// Управление темпом
+function changeSpeed(amount) {
+    let currentRate = wavesurfer.getPlaybackRate();
+    let newRate = currentRate + amount;
+    if (newRate < 0.5) newRate = 0.5;
+    if (newRate > 2.0) newRate = 2.0;
+    wavesurfer.setPlaybackRate(newRate);
+    speedDisplay.textContent = newRate.toFixed(1) + 'x';
+}
+
+// Управление тональностью
+function changePitch(amount) {
+    // amount is in cents (100 cents = 1 semitone)
+    let newPitchCents = currentPitch * 100 + amount;
+    let newPitchSemitones = newPitchCents / 100;
+
+    // Ограничиваем диапазон от -600 до +600 cents (-6 до +6 semitones)
+    if (newPitchCents < -600) {
+        newPitchCents = -600;
+        newPitchSemitones = -6;
+    }
+    if (newPitchCents > 600) {
+        newPitchCents = 600;
+        newPitchSemitones = 6;
+    }
+
+    currentPitch = newPitchSemitones;
+    pitchDisplay.textContent = currentPitch;
+
+    if (wavesurfer.backend.source) {
+        wavesurfer.backend.source.detune.value = newPitchCents;
+    } else {
+        // Если источник еще не создан, устанавливаем detune после загрузки
+        wavesurfer.on('ready', () => {
+            wavesurfer.backend.source.detune.value = newPitchCents;
+        });
+    }
+}
+
+// Смена темы
+themeToggle.addEventListener('click', function () {
+    document.body.classList.toggle('light-theme');
+});
+
+// Поиск по песням
+searchInput.addEventListener('input', () => {
+    const query = searchInput.value.toLowerCase().trim();
+    if (query === '') {
+        if (currentCategory) {
+            filterByCategory(currentCategory);
+        } else {
+            renderArtistsList();
+        }
+    } else {
+        const filteredArtists = artists.filter(artist => {
+            const name = artist.name.toLowerCase();
+            const song = artist.song.toLowerCase();
+            return name.includes(query) || song.includes(query);
+        });
+        renderArtists(filteredArtists);
+    }
+});
+
+// Инициализация
+loadListensFromCookies();
 renderArtistsList();
 
-// Функция для выравнивания текста
+// Функции для работы с куки
+function setCookie(name, value, days) {
+    let expires = "";
+    if (days) {
+        const date = new Date();
+        date.setTime(date.getTime() + (days*24*60*60*1000));
+        expires = "; expires="+ date.toUTCString();
+    }
+    document.cookie = name + "=" + (value || "")  + expires + "; path=/";
+}
+
+function getCookie(name) {
+    const nameEQ = name + "=";
+    const ca = document.cookie.split(';');
+    for(let i=0;i < ca.length;i++) {
+        let c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1,c.length);
+        if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+    }
+    return null;
+}
+
+// Сохранение прослушиваний в куки
+function saveListensToCookies() {
+    const listensData = artists.map(artist => ({
+        name: artist.name,
+        song: artist.song,
+        listens: artist.listens
+    }));
+    setCookie('songListens', JSON.stringify(listensData), 365); // 365 дней
+}
+
+// Загрузка прослушиваний из куки
+function loadListensFromCookies() {
+    const storedData = getCookie('songListens');
+    if (storedData) {
+        const parsedData = JSON.parse(storedData);
+        parsedData.forEach(storedArtist => {
+            const artist = artists.find(a => a.name === storedArtist.name && a.song === storedArtist.song);
+            if (artist) {
+                artist.listens = storedArtist.listens;
+            }
+        });
+    }
+}
+
+// Анимация снежинок
+function createSnowflake() {
+    const snowflake = document.createElement('div');
+    snowflake.classList.add('snowflake');
+    snowflake.style.left = Math.random() * window.innerWidth + 'px';
+    snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
+    snowflake.style.animationDuration = Math.random() * 10 + 10 + 's';
+    snowflake.style.opacity = Math.random();
+    document.getElementById('snowflakes-container').appendChild(snowflake);
+    setTimeout(() => {
+        snowflake.remove();
+    }, 5000);
+}
+
+// Запуск создания снежинок
+setInterval(createSnowflake, 500);
+
+// Функция для установки выравнивания текста
 function setTextAlign(alignment) {
     lyricsDiv.style.textAlign = alignment;
 }
 
 // Функция для изменения размера шрифта
 function changeFontSize(action) {
-    const currentFontSize = window.getComputedStyle(lyricsDiv).fontSize;
-    let newFontSize = parseFloat(currentFontSize);
-    newFontSize = action === 'increase' ? newFontSize + 2 : newFontSize - 2;
-    lyricsDiv.style.fontSize = `${newFontSize}px`;
+    const currentSize = parseFloat(window.getComputedStyle(lyricsDiv, null).getPropertyValue('font-size'));
+    if (action === 'increase') {
+        lyricsDiv.style.fontSize = (currentSize + 2) + 'px';
+    } else if (action === 'decrease') {
+        lyricsDiv.style.fontSize = (currentSize - 2) + 'px';
+    }
 }
 
-// Функция для создания снежинок
-function createSnowflake() {
-    const snowflake = document.createElement('div');
-    snowflake.classList.add('snowflake');
-    
-    // Генерация случайного положения и размера
-    snowflake.style.left = Math.random() * window.innerWidth + 'px';
-    snowflake.style.width = snowflake.style.height = Math.random() * 10 + 5 + 'px';
-    
-    // Удаляем снежинку после того, как она пролетела
-    snowflake.style.animationDuration = Math.random() * 10 + 10 + 's'; // Скорость падения
-    snowflake.style.opacity = Math.random();
-    
-    document.getElementById('snowflakes-container').appendChild(snowflake);
-
-    setTimeout(() => {
-        snowflake.remove();
-    }, 5000); // Убираем снежинку после завершения анимации
+// Функция для загрузки нового трека (заглушка)
+function uploadNewTrack() {
+    alert('Функция загрузки трека пока не реализована.');
 }
-
-// Запуск создания снежинок через интервалы
-setInterval(createSnowflake, 500);
-

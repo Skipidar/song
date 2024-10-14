@@ -1,10 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Music Player</title>
+    <title>Музыкальный плеер</title>
     <link rel="stylesheet" href="style.css" id="theme-style">
+
+    <!-- Подключаем WaveSurfer.js версии 4.6.0 -->
+    <script src="https://unpkg.com/wavesurfer.js@4.6.0/dist/wavesurfer.min.js"></script>
 </head>
 <body>
     <div class="container">
@@ -13,40 +15,63 @@
 
         <!-- Кнопка для смены темы -->
         <button id="theme-toggle" class="btn">Сменить тему</button>
+        <button id="top-back-btn" class="btn back-btn" style="display: none;">Назад к списку песен</button>
 
         <!-- Поле для поиска -->
         <input type="text" id="search-input" placeholder="Поиск по песням..." class="search-bar">
         
         <!-- Кнопки категорий -->
         <div id="categories">
-            <button onclick="filterByCategory('Русские')">Русские</button>
-            <button onclick="filterByCategory('Английские')">Английские</button>
-            <button onclick="filterByCategory('Испанские')">Испанские</button>
-            <button onclick="filterByCategory('Мультфильмы')">Мультфильмы</button>
-            <button onclick="filterByCategory('Под гитару')">Под гитару</button>
-            <button onclick="sortByName()">Сортировка по алфавиту</button>
-            <button onclick="sortByRating()">Сортировка по рейтингу</button>
+            <button class="btn category-btn" onclick="filterByCategory('Русские')">Русские</button>
+            <button class="btn category-btn" onclick="filterByCategory('Английские')">Английские</button>
+            <button class="btn category-btn" onclick="filterByCategory('Испанские')">Испанские</button>
+            <button class="btn category-btn" onclick="filterByCategory('Мультфильмы')">Мультфильмы</button>
+            <button class="btn category-btn" onclick="sortByName()">Сортировка по алфавиту</button>
+            <button class="btn category-btn" onclick="sortByRating()">Сортировка по рейтингу</button>
         </div>
+
+        <!-- Категория песни -->
+        <div id="category-info" style="display: none;"></div>
 
         <!-- Список исполнителей и песен -->
         <div id="artists-list" class="artists-list"></div>
 
         <div id="song-details" style="display: none;">
             <h2 id="song-title"></h2>
-            <audio id="audio-player" controls></audio>
-                        <div id="variations" class="variations"></div>
-            <pre id="lyrics" class="lyrics-text"></pre>
-<!-- Элементы управления текстом -->
-<div id="text-controls">
-    <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
-    <button onclick="setTextAlign('center')" class="btn">По центру</button>
-    <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
-    <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
-    <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
-</div>
 
+            <!-- Визуализатор WaveSurfer -->
+            <div id="waveform"></div>
+
+            <!-- Кнопка Play -->
+            <button id="play-button" class="btn play-btn">Play</button>
+
+            <!-- Элементы управления тональностью и темпом -->
+            <div id="controls">
+                <label>Тональность:
+                    <button onclick="changePitch(-100)" class="btn">-</button>
+                    <span id="pitch-display">0</span>
+                    <button onclick="changePitch(100)" class="btn">+</button>
+                </label>
+                <label>Темп:
+                    <button onclick="changeSpeed(-0.1)" class="btn">-</button>
+                    <span id="speed-display">1.0x</span>
+                    <button onclick="changeSpeed(0.1)" class="btn">+</button>
+                </label>
             </div>
-            <button id="back-btn" class="btn">Назад к списку песен</button>
+
+            <div id="variations" class="variations"></div>
+            <pre id="lyrics" class="lyrics-text"></pre>
+
+            <!-- Элементы управления текстом -->
+            <div id="text-controls">
+                <button onclick="setTextAlign('left')" class="btn">По левому краю</button>
+                <button onclick="setTextAlign('center')" class="btn">По центру</button>
+                <button onclick="setTextAlign('right')" class="btn">По правому краю</button>
+                <button onclick="changeFontSize('increase')" class="btn">Увеличить шрифт</button>
+                <button onclick="changeFontSize('decrease')" class="btn">Уменьшить шрифт</button>
+            </div>
+
+            <button id="back-btn" class="btn back-btn">Назад к списку песен</button>
         </div>
 
         <!-- Форма для загрузки трека и текста -->
@@ -60,7 +85,27 @@
         </div>
     </div>
 
-    <!-- Скрипты -->
+    <!-- Контейнер для снежинок -->
+    <div id="snowflakes-container"></div>
+
+    <!-- Фиксированный плеер внизу -->
+    <div id="fixed-player" class="fixed-player">
+        <div id="player-controls">
+            <button id="rewind" class="btn">⏪</button>
+            <button id="play-pause" class="btn">⏯</button>
+            <button id="forward" class="btn">⏩</button>
+            <input type="range" id="volume-control" min="0" max="1" step="0.01" value="1">
+            <span id="current-volume">100%</span>
+        </div>
+        <!-- Прогресс-бар -->
+        <input type="range" id="progress-bar" min="0" max="100" value="0">
+        <!-- Отображение времени -->
+        <div id="time-display">
+            <span id="current-time">0:00</span> / <span id="total-duration">0:00</span>
+        </div>
+    </div>
+
+    <!-- Скрипт -->
     <script src="script.js"></script>
 </body>
 </html>
