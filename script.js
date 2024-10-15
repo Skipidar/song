@@ -6,7 +6,7 @@ const artists = [
             { label: "minus 2", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-2).mp3" },
             { label: "minus 3", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева-(minus-3).mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Нева.txt",
         category: "Русские",
         listens: 0
     },
@@ -16,7 +16,7 @@ const artists = [
         variations: [
             { label: "minus 3", file: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Солдат-(minus-3).mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/(5)Пятницца/5'nizza-(Пятница)---Солдат.txt",
         category: "Русские",
         listens: 0
     },
@@ -26,7 +26,7 @@ const artists = [
         variations: [
             { label: "minus 2", file: "assets/Music/А.Пугачева---На-Тихорецкую/Алла-Пугачёва---На-Тихорецкую-(minus-2)-+0-semitone.mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/А.Пугачева---На-Тихорецкую/Алла-Пугачёва---На-Тихорецкую.txt",
         category: "Русские",
         listens: 0
     },
@@ -205,7 +205,7 @@ const artists = [
         variations: [
             { label: "filtered instrumental", file: "assets/Music/Дорогой-дневник-Этажи/Dorogojj_Dnevnik_-_JEtazhi_(patefon.org)-(Filtered-Instrumental-with-BV)-(1).mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/Дорогой-дневник-Этажи/ЭТАЖИ---Дорогой-Дневник.txt",
         category: "Русские",
         listens: 0
     },
@@ -350,7 +350,7 @@ const artists = [
         name: "Любэ",
         song: "Конь",
         variations: [],
-        lyrics: "",
+        lyrics: "assets\Music\Любэ---Конь\Любэ-конь.txt",
         category: "Русские",
         listens: 0
     },
@@ -391,10 +391,9 @@ const artists = [
         name: "Макс Корж",
         song: "Пламенный свет",
         variations: [
-            { label: "minus", file: "assets/Music/Макс-Корж---Пламенный-свет-эндорфин/Макс-Корж---Пламенный-свет-(minus).mp3" },
-            { label: "Эндорфин", file: "assets/Music/Макс-Корж---Пламенный-свет-эндорфин/Макс-Корж---Эндорфин-(minus)-+2-semitones.mp3" }
+            { label: "minus", file: "assets/Music/Макс-Корж---Пламенный-свет-эндорфин/Макс-Корж---Пламенный-свет-(minus).mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/Макс-Корж---Пламенный-свет-эндорфин/Макс-Корж---Пламенный-свет.txt",
         category: "Русские",
         listens: 0
     },
@@ -445,7 +444,7 @@ const artists = [
         variations: [
             { label: "minus", file: "assets/Music/Максим--Отпускаю/МакSим---Отпускаю-(minus).mp3" }
         ],
-        lyrics: "",
+        lyrics: "assets/Music/Максим--Отпускаю/МакSим---Отпускаю.txt",
         category: "Русские",
         listens: 0
     },
@@ -528,12 +527,642 @@ const artists = [
         variations: [
             { label: "Filtered Instrumental", file: "assets/Music/Оксана-Джелиева-Больно--я-улыбаюсь/Оксана-Джелиева---Больно-а-я-улыбаюсь-(Filtered-Instrumental)_B♭_minor__bpm_130.mp3" }
         ],
+        lyrics: "assets/Music/Оксана-Джелиева-Больно--я-улыбаюсь/Оксана-Джелиева-—-Больно.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Alec Benjamin",
+        song: "Let Me Down Slowly",
+        variations: [
+            { label: "minus 3", file: "assets/Music/Alec-Benjamin--Let-me-down-slowly/Alec-Benjamin---Let-Me-Down-Slowly-(minus-3)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Alec-Benjamin--Let-me-down-slowly/Alec-Benjamin---Let-Me-Down-Slowly.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "ANIKV feat. SALUKI",
+        song: "Меня не будет",
+        variations: [
+            { label: "acoustic", file: "assets/Music/ANIKV--Меня-не-будет/ANIKV-feat.-SALUKI---Меня-не-будет-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/ANIKV--Меня-не-будет/ANIKV-feat.-SALUKI---Меня-не-будет-(acoustic).txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Animal ДжаZ",
+        song: "Три полоски",
+        variations: [
+            { label: "minus", file: "assets/Music/Animal-ДжаZ--3-полоски/Animal-ДжаZ---Три-полоски-(minus)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Animal-ДжаZ--3-полоски/Animal-ДжаZ---Три-полоски.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Bebe",
+        song: "Siempre Me Quedará",
+        variations: [
+            { label: "minus", file: "assets/Music/Bebe--Siempre-mi-quedara/Bebe---Siempre-me-quedara-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Bebe--Siempre-mi-quedara/Bebe---Siempre-me-quedara.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Carla Morrison",
+        song: "Disfruto",
+        variations: [
+            { label: "minus", file: "assets/Music/Carla-Morrison--Disfruto/Carla-Morrison---Disfruto-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Carla-Morrison--Disfruto/Carla-Morrison---Disfruto.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Chris Isaak",
+        song: "Wicked Game",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Chris-Isaak--Wicked-game/Chris-Isaak---Wicked-Game-(Piano)-(minus-2).mp3" },
+            { label: "minus", file: "assets/Music/Chris-Isaak--Wicked-game/Chris-Isaak---Wicked-Game-(Gavriil65)-(minus)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Chris-Isaak--Wicked-game/Chris-Isaak---Wicked-Game-(Gavriil65).txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Ed Sheeran",
+        song: "Perfect",
+        variations: [
+            { label: "minus 7", file: "assets/Music/Ed-Sheeran---Perfect/Ed-Sheeran---Perfect-(minus-7)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Ed-Sheeran---Perfect/Ed-Sheeran---Perfect.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Escape",
+        song: "Игрушка",
+        variations: [
+            { label: "minus", file: "assets/Music/Escape--Игрушка/Escape---Игрушка-(minus)-+4-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Escape--Игрушка/Escape---Игрушка.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Feduk",
+        song: "Хлорья летят наверх",
+        variations: [
+            { label: "minus", file: "assets/Music/Feduk--Хлорья-летят-наверх/FEDUK---Хлопья-летят-наверх-(minus)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Feduk--Хлорья-летят-наверх/FEDUK---Хлопья-летят-наверх.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Gafur",
+        song: "Атом",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Gafur--Атом/Gafur---Атом-(minus-2)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Gafur--Атом/Gafur---Атом.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Green Apelsin",
+        song: "Охота на лисицу",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Green-Apelsin--Охота-на-лисицу/Green-Apelsin---Охота-на-лисицу-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Green-Apelsin--Охота-на-лисицу/Green-Apelsin---Охота-на-лисицу.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Green Apelsin",
+        song: "Северный ветер",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Green-Apelsin--Северный-ветер/Green-Apelsin---Северный-ветер-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Green-Apelsin--Северный-ветер/Green-Apelsin---Северный-ветер.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Hensy",
+        song: "Поболело и прошло",
+        variations: [
+            { label: "minus", file: "assets/Music/Hensy--Поболело-и-прошло/Hensy---Поболело-и-прошло-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Hensy--Поболело-и-прошло/Hensy---Поболело-и-прошло.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Inna",
+        song: "Tequila",
+        variations: [
+            { label: "minus", file: "assets/Music/Inna--tequila/Tequila-INNA-.mp3" }
+        ],
+        lyrics: "assets/Music/Inna--tequila/inna-tequila.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Inwhite",
+        song: "Спокойных снов",
+        variations: [
+            { label: "minus", file: "assets/Music/Inwhite--Спокойных-снов/Inwhite---Спокойных-снов-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Inwhite--Спокойных-снов/Inwhite---Спокойных-снов.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Ivan Valeev",
+        song: "Новелла",
+        variations: [
+            { label: "minus", file: "assets/Music/Ivan-Valeev--Новелла/Ivan-Valeev---Novella-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Ivan-Valeev--Новелла/Ivan-Valeev---Novella.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Jennifer Paige",
+        song: "Crush",
+        variations: [
+            { label: "minus", file: "assets/Music/Jennifer-Paige--Crush/Jennifer-Paige---Crush-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Jennifer-Paige--Crush/Jennifer-Paige---Crush.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Jony",
+        song: "Аллея",
+        variations: [
+            { label: "minus", file: "assets/Music/Jony--Аллея/Jony---Аллея-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Jony--Аллея/Jony---Аллея.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Jony",
+        song: "Комета",
+        variations: [
+            { label: "minus", file: "assets/Music/Jony--Комета/Jony---Комета-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Jony--Комета/Jony---Комета.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Jony",
+        song: "Пустота",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Jony--Пустота/Jony---Пустота-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Jony--Пустота/Jony---Пустота.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Julieta Venegas",
+        song: "Pa' Bailar (Siempre Quiero Más)",
+        variations: [
+            { label: "Filtered Instrumental", file: "assets/Music/Julieta-Venegas--Pa’-Bailar-(Siempre-Quiero-Más)/Bajofondo-feat.-Julieta-Venegas---Pa-Bailar-(Filtered-Instrumental)-(MDX-v2-Voc-FT)-(1).mp3" }
+        ],
+        lyrics: "assets/Music/Julieta-Venegas--Pa’-Bailar-(Siempre-Quiero-Más)/Pa'-bailar-.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Kambulat",
+        song: "Томас Шелби",
+        variations: [
+            { label: "minus 3 +1 semitone", file: "assets/Music/Kambulat--Томас-Шелби/Kambulat---Томас-Шелби-(minus-3)-+1-semitone.mp3" },
+            { label: "minus 3 +3 semitones", file: "assets/Music/Kambulat--Томас-Шелби/Kambulat---Томас-Шелби-(minus-3)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Kambulat--Томас-Шелби/Kambulat---Томас-Шелби.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Karnaval",
+        song: "Ромашки",
+        variations: [
+            { label: "minus", file: "assets/Music/Karnaval-Ромашки/Валя-Карнавал---Ромашки-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Karnaval-Ромашки/Валя-Карнавал---Ромашки.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Lana Del Rey",
+        song: "Love",
+        variations: [
+            { label: "minus 4", file: "assets/Music/Lana-Del-Rey---Love/Lana-Del-Rey---Love-(minus-4).mp3" }
+        ],
+        lyrics: "assets/Music/Lana-Del-Rey---Love/Lana-Del-Rey---Love.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Lana Del Rey",
+        song: "Young and Beautiful",
+        variations: [
+            { label: "minus", file: "assets/Music/Lana-Del-Rey--Young-and-beautiful/Lana-Del-Rey---Young-and-Beautiful-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Lana-Del-Rey--Young-and-beautiful/Lana-Del-Rey---Young-and-Beautiful.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "LASCALA",
+        song: "Пульс",
+        variations: [
+            { label: "minus", file: "assets/Music/LASCALA--Пульс/LaScala---Пульс-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/LASCALA--Пульс/LaScala---Пульс.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Lila Downs",
+        song: "La Bamba",
+        variations: [
+            { label: "wav", file: "assets/Music/Lila-Downs--La-Bamba/La-BAMBA-.mp3" }
+        ],
+        lyrics: "assets/Music/Lila-Downs--La-Bamba/La-Bamba.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Liza Evans",
+        song: "Ревную",
+        variations: [
+            { label: "minus", file: "assets/Music/Liza-Evans--Ревную/Liza-Evans---Ревную-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Liza-Evans--Ревную/Liza-Evans---Ревную.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Lx24",
+        song: "Уголёк",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Lx24--Уголёк/Lx24---Уголёк-(minus-2)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Lx24--Уголёк/Lx24---Уголёк.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Miyagi",
+        song: "Патрон",
+        variations: [
+            { label: "minus", file: "assets/Music/Miyagi--Патрон/MiyaGi---Патрон-(minus)--2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Miyagi--Патрон/MiyaGi---Патрон.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Natalia Doco",
+        song: "Quedate Luna",
+        variations: [
+            { label: "mp4", file: "assets/Music/Natalia-Doco--quedate-luna/Караоке-испанскаяя-песня.mp4" }
+        ],
         lyrics: "",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "NLO",
+        song: "Холодно",
+        variations: [
+            { label: "minus", file: "assets/Music/NLO--Холодно/NLO---Холодно-(minus)-+4-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/NLO--Холодно/NLO---Холодно.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Princesse Angine",
+        song: "Фантастический вальс",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Princesse-Angine--Фантастический-вальс/Принцесса-Ангина---Фантастический-вальс-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Princesse-Angine--Фантастический-вальс/Принцесса-Ангина---Фантастический-вальс.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Radiohead",
+        song: "Creep",
+        variations: [
+            { label: "Piano minus", file: "assets/Music/Radiohead--Creep/Radiohead---Creep-(Piano)-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Radiohead--Creep/Radiohead---Creep-(Piano).txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Rauf & Fauk",
+        song: "Закат и Рассвет",
+        variations: [
+            { label: "minus 1 semitone", file: "assets/Music/Rauf&Fauk--Закат-и-Рассвет/Rauf-and-Faik---Закат-и-рассвет-(minus)-+1-semitone.mp3" },
+            { label: "minus 2 semitones", file: "assets/Music/Rauf&Fauk--Закат-и-Рассвет/Rauf-and-Faik---Закат-и-рассвет-(minus)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Rauf&Fauk--Закат-и-Рассвет/Rauf-&-Faik---Закат-и-рассвет.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "RSAC",
+        song: "NBA не мешай",
+        variations: [
+            { label: "minus", file: "assets/Music/Rsac--NBA-не-мешай/RSAC---Не-мешай-(NBA)-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Rsac--NBA-не-мешай/RSAC---Не-мешай-(NBA).txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Si-se",
+        song: "Mariposa en Havana",
+        variations: [
+            { label: "minus", file: "assets/Music/Si-se--Mariposa-en-Havana/SiS_-_Mariposa_En_Havana_(mp3.xmuz.pro)-(Backing-Track)-(MDX-v2-Voc-FT).mp3" }
+        ],
+        lyrics: "assets/Music/Si-se--Mariposa-en-Havana/Mariposa-en-Havana.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Slava Marlow",
+        song: "Снова я напиваюсь",
+        variations: [
+            { label: "minus", file: "assets/Music/Slava-Marlow--Снова-я-напиваюсь/Slava-Marlow---Снова-я-напиваюсь-(by-Studio-Man'2020)-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Slava-Marlow--Снова-я-напиваюсь/Slava-Marlow---Снова-я-напиваюсь-(by-Studio-Man'2020).txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "The Beatles",
+        song: "Yesterday",
+        variations: [
+            { label: "minus 2", file: "assets/Music/The-Beatles--Yesterday/Beatles,-The---Yesterday-(minus-2)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/The-Beatles--Yesterday/Beatles,-The---Yesterday.txt",
+        category: "English",
+        listens: 0
+    },
+    {
+        name: "Yasmin Levy",
+        song: "Me Voy",
+        variations: [
+            { label: "minus", file: "assets/Music/Yasmin-Levy---Me-Voy/Yasmin-Levy---Me-Voy-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Yasmin-Levy---Me-Voy/Yasmin-Levy---Me-Voy.txt",
+        category: "Español",
+        listens: 0
+    },
+    {
+        name: "Zivert",
+        song: "Life",
+        variations: [
+            { label: "minus", file: "assets/Music/Zivert-Life/Zivert---Life-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Zivert-Life/Zivert---Life.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Алла Пугачева",
+        song: "На Тихорецкую",
+        variations: [],
+        lyrics: "assets/Music/А.Пугачева---На-Тихорецкую/Алла-Пугачёва---На-Тихорецкую.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Дабро",
+        song: "На часах ноль-ноль",
+        variations: [
+            { label: "minus 3 semitones", file: "assets/Music/Дабро--На-часах-ноль-ноль/Dabro---На-часах-ноль-ноль-(minus)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Дабро--На-часах-ноль-ноль/Dabro---На-часах-ноль-ноль.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Мёртвые дельфины",
+        song: "На моей луне",
+        variations: [
+            { label: "minus +2 semitones", file: "assets/Music/Мёртвые-дельфины--На-моей-луне/Мёртвые-Дельфины---На-моей-луне-(minus)-+2-semitones.mp3" },
+            { label: "minus", file: "assets/Music/Мёртвые-дельфины--На-моей-луне/Мёртвые-Дельфины---На-моей-луне-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Мёртвые-дельфины--На-моей-луне/Мёртвые-Дельфины---На-моей-луне.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Мираж",
+        song: "Музыка нас связала",
+        variations: [
+            { label: "minus 12", file: "assets/Music/Мираж--Музыка-нас-связала/Мираж---Музыка-нас-связала-(minus-12).mp3" }
+        ],
+        lyrics: "assets/Music/Мираж--Музыка-нас-связала/Мираж---Музыка-нас-связала.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Михаил Боярский",
+        song: "Зеленоглазое такси",
+        variations: [
+            { label: "minus 3", file: "assets/Music/Михаил-Боярский--Зеленоглазое-такси/Михаил-Боярский---Зеленоглазое-такси-(minus-3).mp3" }
+        ],
+        lyrics: "assets/Music/Михаил-Боярский--Зеленоглазое-такси/Михаил-Боярский---Зеленоглазое-такси.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Монокини",
+        song: "Дотянуться до солнца",
+        variations: [
+            { label: "minus", file: "assets/Music/Монокини--Дотянуться-до-солнца/Монокини---Дотянуться-до-солнца-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Монокини--Дотянуться-до-солнца/Монокини---Дотянуться-до-солнца.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Моя Мишель",
+        song: "Зима в сердце",
+        variations: [
+            { label: "minus 3", file: "assets/Music/Моя-Мишель--Зима-в-сердце/Моя-Мишель---Зима-в-сердце-(minus-3).mp3" }
+        ],
+        lyrics: "assets/Music/Моя-Мишель--Зима-в-сердце/Моя-Мишель---Зима-в-сердце-(1).txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Мумий Тролль",
+        song: "Утекай",
+        variations: [
+            { label: "minus 4", file: "assets/Music/Мумий-Тролль--Утекай/Мумий-Тролль-_-Илья-Лагутенко---Утекай-(minus-4).mp3" }
+        ],
+        lyrics: "assets/Music/Мумий-Тролль--Утекай/Мумий-Тролль-_-Илья-Лагутенко---Утекай.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Надежда Кадышева",
+        song: "Широка река",
+        variations: [
+            { label: "minus", file: "assets/Music/Н.-Кадышева--Широка-река/Надежда-Кадышева-и-«Золотое-кольцо»---Широка-река-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Н.-Кадышева--Широка-река/Надежда-Кадышева-и-«Золотое-кольцо»---Широка-река.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Николай Носков",
+        song: "Это здорово",
+        variations: [
+            { label: "minus 3 semitones", file: "assets/Music/Н.-Носков--Это-здорово/Николай-Носков---Это-здорово-(minus-3)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Н.-Носков--Это-здорово/Николай-Носков---Это-здорово.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Наталья Штурм",
+        song: "Школьный роман",
+        variations: [
+            { label: "minus", file: "assets/Music/Н.-Штурм--Школьный-роман/Наталья-Штурм---Школьный-роман-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Н.-Штурм--Школьный-роман/Наталья-Штурм---Школьный-Роман-(1).txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Наутилиус Помпилиус",
+        song: "Дыхание (кавер)",
+        variations: [
+            { label: "minus 2 semitones", file: "assets/Music/Наутилиус-Помпилиус--Дыхание-кавер/Sirotkin---Дыхание-(minus)--2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Наутилиус-Помпилиус--Дыхание-кавер/Sirotkin---Дыхание.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Нервы",
+        song: "Слишком влюблен",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Нервы--Слишком-влюблен/Нервы---Слишком-влюблен-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Нервы--Слишком-влюблен/Нервы---Слишком-влюблен.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Нина Бродская",
+        song: "Звенит январская вьюга",
+        variations: [
+            { label: "minus", file: "assets/Music/Нина-Бродская--Звенит-январская-вьюга/Из-кинофильмов---Звенит-январская-вьюга-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Нина-Бродская--Звенит-январская-вьюга/Из-кинофильмов---Звенит-январская-вьюга.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Оскар",
+        song: "Между мной и тобой",
+        variations: [
+            { label: "minus 2 semitones", file: "assets/Music/Оскар--Между-мной-и-тобой/Оскар---Между-мной-и-тобой-(minus-2)-+2-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Оскар--Между-мной-и-тобой/Оскар---Между-мной-и-тобой.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Полина Гагарина",
+        song: "Колыбельная",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Полина-Гагарина--Колыбельная/Полина-Гагарина---Колыбельная-(minus-2).mp3" }
+        ],
+        lyrics: "assets/Music/Полина-Гагарина--Колыбельная/Полина-Гагарина---Колыбельная.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Порнофильмы",
+        song: "Я так соскучился",
+        variations: [
+            { label: "minus 3 semitones", file: "assets/Music/Порнофильмы--Я-так-соскучился/Порнофильмы---Я-так-соскучился-(minus)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Порнофильмы--Я-так-соскучился/Порнофильмы---Я-так-соскучился.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Серебро",
+        song: "Сломана",
+        variations: [
+            { label: "minus 2", file: "assets/Music/Серебро--Сломана/Serebro-(Серебро)---Сломана-(minus-2)-+0-semitone.mp3" }
+        ],
+        lyrics: "assets/Music/Серебро--Сломана/Serebro-(Серебро)---Сломана.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Скриптонит",
+        song: "Это любовь",
+        variations: [
+            { label: "minus 1 semitone", file: "assets/Music/Скриптонит--Это-любовь/Скриптонит---Это-любовь-(minus)-+1-semitone.mp3" }
+        ],
+        lyrics: "assets/Music/Скриптонит--Это-любовь/Скриптонит---Это-любовь.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Сплин",
+        song: "Мое сердце остановилось",
+        variations: [
+            { label: "minus 3 semitones", file: "assets/Music/Сплин--Мое-сердце-остановилось/Сплин---Мое-сердце-(minus)-+3-semitones-(1).mp3" }
+        ],
+        lyrics: "assets/Music/Сплин--Мое-сердце-остановилось/Сплин---Мое-сердце.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Сплин",
+        song: "Романс",
+        variations: [
+            { label: "minus", file: "assets/Music/Сплин--Романс/Сплин---Романс-(minus).mp3" }
+        ],
+        lyrics: "assets/Music/Сплин--Романс/Сплин---Романс.txt",
+        category: "Русские",
+        listens: 0
+    },
+    {
+        name: "Виктор Цой",
+        song: "Восьмиклассница",
+        variations: [
+            { label: "minus 3 semitones", file: "assets/Music/Цой--Восьмиклассница/Кино-_-Виктор-Цой---Восьмиклассница-(minus)-+3-semitones.mp3" }
+        ],
+        lyrics: "assets/Music/Цой--Восьмиклассница/Кино-_-Виктор-Цой---Восьмиклассница.txt",
         category: "Русские",
         listens: 0
     }
-    
-    
     // Добавь сюда остальные песни и их вариации по аналогии
 ];
 
@@ -789,8 +1418,19 @@ function filterByCategory(category) {
     currentCategory = category;
     categoryInfoDiv.style.display = 'block';
     categoryInfoDiv.textContent = `Категория: ${category}`;
-    const filteredArtists = artists.filter(artist => artist.category === category);
-    renderArtists(filteredArtists);
+
+    // Добавляем фильтр для категорий English и Español
+    const filteredArtists = artists.filter(artist => {
+        if (category === 'Английские') {
+            return artist.language === 'English';
+        } else if (category === 'Испанские') {
+            return artist.language === 'Español';
+        } else {
+            return artist.category === category;
+        }
+    });
+
+    renderArtists(filteredArtists); // Отображаем отфильтрованные песни
 }
 
 // Функция для отображения отфильтрованных треков
